@@ -1,6 +1,57 @@
 @import './variables.scss';
 
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap');
+
 body {
+	border-collapse: collapse;
+	box-sizing: border-box;
+	font: 400 $font-body;
+	height: 100vh;
+	margin: 0;
+	width: 100vw;
+}
+
+#root {
+	display: flex;
+	flex-direction: column;
 	height: 100%;
 	width: 100%;
+
+	.App {
+		margin: auto;
+	}
+}
+
+#Nav {
+	background-color: $brown;
+	color: $white;
+	text-align: center;
+	z-index: 1;
+
+	hr {
+		background-color: rgba(255, 255, 255, 0.2);
+		border-radius: 2px;
+		border-width: 0;
+		height: 1px;
+		width: 13%;
+	}
+}
+
+div#navicon-container {
+	background-color: rgba(255, 255, 255, 0.9);
+	border-radius: 50%;
+	display: flex;
+	height: 48px;
+	left: 16px;
+	position: fixed;
+	top: 16px;
+	width: 48px;
+	z-index: 2;
+
+	img.navicon {
+		display: block;
+		margin: auto;
+		width: 26px;
+	}
 }
