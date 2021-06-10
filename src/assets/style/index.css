@@ -30,6 +30,7 @@ body {
   background-color: #2f2926;
   color: #fff;
   text-align: center;
+  z-index: 1;
 }
 
 #Nav hr {
@@ -40,8 +41,8 @@ body {
   width: 13%;
 }
 
-#navicon-container {
-  background-color: #fff;
+div#navicon-container {
+  background-color: rgba(255, 255, 255, 0.9);
   border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -54,8 +55,9 @@ body {
   z-index: 2;
 }
 
-#navicon-container img {
+div#navicon-container img.navicon {
   display: block;
   margin: auto;
+  width: 26px;
 }
 /*# sourceMappingURL=index.css.map */

@@ -1,9 +1,13 @@
 function Nav() {
 	return (
 		<section id="Nav">
-			<p>nav item</p>
+			<p>Menu</p>
 			<hr />
-			<p>nav item</p>
+			<p>Vårt kaffe</p>
+			<hr />
+			<p>Min profil</p>
+			<hr />
+			<p>Orderstatus</p>
 		</section>
 	);
 }
