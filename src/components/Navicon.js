@@ -1,35 +1,22 @@
-import { useSelector } from 'react-redux';
-import { toggle } from '../actions/naviconAction';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleNavicon } from '../actions/naviconAction';
 import imgClose from '../assets/img/svg/close-menu.svg';
 import imgOpen from '../assets/img/svg/open-menu.svg';
 
-// function App() {
-// 	return (
-// 		<section>
-// 			<img src={imgUrl} />
-// 		</section>
-// 	);
-// }
-
 function Navicon() {
-	let navicon = useSelector((state) => {
+	const navicon = useSelector((state) => {
 		return state.navicon;
 	});
-
-	// let navicon = false;
 
 	const dispatch = useDispatch();
 
 	function toggleNav() {
-		dispatch(toggle(!navicon.toggle));
-		console.log(navicon);
-		// navicon = !navicon;
+		dispatch(toggleNavicon(!navicon.display));
 	}
 
 	return (
 		<div id="navicon-container" onClick={toggleNav}>
-			{navicon.toggle ? (
+			{navicon.display ? (
 				<img className="navicon" src={imgClose} alt="Close Menu Icon" />
 			) : (
 				<img className="navicon" src={imgOpen} alt="Open Menu Icon" />

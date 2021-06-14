@@ -3,42 +3,59 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap');
 
 body {
-	background-color: $pink;
 	border-collapse: collapse;
 	box-sizing: border-box;
-	font: 400 $font-body;
-	height: 100vh;
+	font: 400 12px $font-body;
+	min-height: 100vh;
+	line-height: 19.2px;
 	margin: 0;
 	width: 100vw;
+}
+
+body.dark {
+	background-color: $brown;
+}
+
+body.light {
+	background-color: $pink;
 }
 
 #root {
 	display: flex;
 	flex-direction: column;
-	height: 100%;
+	min-height: 100vh;
 	margin: 0;
 	width: 100%;
 
 	.App {
 		display: flex;
 		flex-direction: column;
-		height: 100%;
+		min-height: 100vh;
 		margin: 0;
 		width: 100%;
 
-		footer {
+		footer.hide {
+			display: none;
+		}
+
+		footer.show {
 			background-image: url('../img/svg/footer.svg');
 			background-repeat: no-repeat;
 			background-size: cover;
-			bottom: 0;
+			// bottom: 0;
 			display: flex;
 			height: 73px;
-			position: absolute;
+			// position: fixed;
 			width: 100%;
 
 			p {
 				margin: auto;
 			}
+		}
+
+		section#view {
+			display: flex;
+			flex-grow: 1;
 		}
 
 		header {
@@ -47,18 +64,11 @@ body {
 			background-size: cover;
 			display: flex;
 			height: 113px;
+			position: sticky;
+			top: 0;
 			width: 100%;
 
 			p {
-				margin: auto;
-			}
-		}
-
-		section {
-			display: flex;
-			flex-grow: 1;
-
-			h1 {
 				margin: auto;
 			}
 		}
@@ -67,18 +77,19 @@ body {
 
 #Nav {
 	background-color: $brown;
+	box-sizing: border-box;
 	color: $white;
 	display: flex;
 	flex-direction: column;
 	font-family: $font-heading;
 	font-size: 32px;
 	font-weight: 700;
-	height: 100vh;
-	left: 0;
-	line-height: 1.2em;
+	height: 100%;
+	justify-content: center;
+	line-height: 38.4px;
 	margin: 0;
+	max-height: 100vh;
 	overflow: hidden;
-	padding: 235px 0 0 0;
 	position: absolute;
 	text-align: center;
 	top: 0;
@@ -91,6 +102,10 @@ body {
 		border-width: 0;
 		height: 1px;
 		width: 13%;
+	}
+
+	p {
+		margin: 0;
 	}
 }
 
@@ -153,8 +168,303 @@ div#cart {
 			font-family: $font-heading;
 			font-size: 12px;
 			font-weight: 700;
+			line-height: 14.4px;
 			margin: auto;
 			text-align: center;
+		}
+	}
+}
+
+.preamble {
+	font-family: $font-body;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 22.4px;
+}
+
+.view,
+.menu,
+.user {
+	color: $brown;
+	display: flex;
+	flex-direction: column;
+	padding: 32px;
+
+	h1 {
+		font: 700 42px $font-heading;
+		line-height: 50.4px;
+		margin-bottom: 15px;
+		margin-top: 0;
+	}
+}
+
+.view {
+	text-align: left;
+}
+
+article.menu {
+	align-items: center;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	min-width: 100%;
+	padding: 32px;
+	text-align: center;
+
+	section.menu-items {
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		justify-content: space-evenly;
+		min-width: 100%;
+
+		.menu-item {
+			display: grid;
+			grid-template-areas:
+				'add title price'
+				'add desc desc';
+			grid-template-columns: 32px auto 1fr;
+			margin: 0;
+			min-width: 100%;
+
+			.add-icon {
+				display: flex;
+				grid-area: add;
+
+				img {
+					display: block;
+					height: 32px;
+					margin: 0;
+					width: 32px;
+				}
+			}
+
+			p {
+				margin: 0;
+			}
+
+			.menu-item-title,
+			.menu-item-price {
+				font: 700 23px $font-heading;
+				line-height: 27.6px;
+			}
+
+			.menu-item-title,
+			.menu-item-desc {
+				padding-left: 16px;
+			}
+
+			.menu-item-title {
+				grid-area: title;
+				text-align: left;
+			}
+
+			.menu-item-price {
+				grid-area: price;
+				text-align: right;
+			}
+
+			.menu-item-desc {
+				font: 400 12px $font-body;
+				grid-area: desc;
+				line-height: 15.6px;
+				text-align: left;
+			}
+		}
+	}
+}
+
+section.user {
+	align-items: center;
+	box-sizing: border-box;
+	color: $white;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	justify-content: space-evenly;
+
+	.profile {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+
+		img {
+			height: 94px;
+			margin-bottom: 15px;
+			width: 94px;
+		}
+
+		h1 {
+			font: 700 24px $font-heading;
+			line-height: 28.8px;
+			margin-bottom: 15px;
+		}
+
+		.email {
+			font: 400 14px $font-body;
+			line-height: 16.8px;
+			margin: 0;
+			opacity: 0.8;
+		}
+	}
+
+	.history-id {
+		font: 700 14px $font-body;
+		line-height: 16.8px;
+		opacity: 0.7;
+	}
+
+	.history-sum {
+		opacity: 0.5;
+	}
+}
+
+#eva-cortado {
+	align-items: center;
+	color: $brown;
+	display: flex;
+	flex-direction: column;
+	margin-top: 24.8px;
+
+	#name {
+		font: 700 22px $font-heading;
+		line-height: 35.2px;
+		margin: 0;
+		text-align: center;
+	}
+
+	#title {
+		font: 400 12px $font-body;
+		line-height: 19.2px;
+		margin: 0;
+		text-align: center;
+	}
+}
+
+a {
+	color: $white;
+	text-decoration: none;
+}
+
+section#delivery {
+	align-items: center;
+	background-color: $orange;
+	box-sizing: border-box;
+	color: $white;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: space-evenly;
+	max-height: 100vh;
+	max-width: 100vw;
+	padding: 48px;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	z-index: 6;
+
+	h1 {
+		font: 700 36px $font-heading;
+		line-height: 43.2px;
+	}
+
+	button {
+		background-color: $white;
+		border: none;
+		border-radius: 27.5px;
+		color: $brown;
+		font: 700 24px $font-heading;
+		height: 55px;
+		width: 184px;
+	}
+
+	#drone {
+		height: 119.06px;
+		width: 216.29px;
+	}
+
+	p#order-id {
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 19.2px;
+
+		span#id-number {
+			font-weight: 700;
+		}
+	}
+
+	p#time {
+		font-size: 21px;
+		line-height: 25.2px;
+
+		span#minutes {
+			font-size: 22px;
+			line-height: 26.4px;
+		}
+	}
+}
+
+#toggle-order-status {
+	cursor: pointer;
+}
+
+table#order-history {
+	border-collapse: collapse;
+	margin: 30px;
+	width: 100%;
+
+	thead {
+		font: 700 22px $font-heading;
+		height: 46px;
+		line-height: 26.4px;
+		text-align: left;
+	}
+
+	tbody {
+		font: 400 12px $font-body;
+		line-height: 14.4px;
+		text-align: left;
+
+		td {
+			height: 20px;
+		}
+
+		tr.bottom-border {
+			border-bottom: solid 1px rgba(255, 255, 255, 0.08);
+		}
+
+		td.id {
+			font-size: 14px;
+			font-weight: 700;
+			line-height: 16.8px;
+		}
+
+		td.date {
+			font-size: 14px;
+			line-height: 16.8px;
+			text-align: right;
+		}
+
+		td.sum {
+			text-align: right;
+		}
+	}
+
+	tfoot {
+		font-size: 14px;
+		font-weight: 700;
+		height: 28.5px;
+		line-height: 16.8px;
+
+		td {
+			// border-collapse: separate;
+			border-top: solid 1px rgba(255, 255, 255, 0.6);
+		}
+
+		td.total {
+			text-align: right;
 		}
 	}
 }

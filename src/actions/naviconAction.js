@@ -1,13 +1,6 @@
-export const toggle = (toggleNavicon) => {
+export const toggleNavicon = (updateToggle) => {
 	return {
-		type: 'TOGGLE',
-		payload: toggleNavicon
-	};
-};
-
-export const display = (displayNavicon) => {
-	return {
-		type: 'DISPLAY',
-		payload: displayNavicon
+		type: 'TOGGLE_NAV',
+		payload: updateToggle
 	};
 };

@@ -2,9 +2,9 @@ const initState = {
 	display: false
 };
 
-const naviconReducer = (state = initState, action) => {
+const orderStatusReducer = (state = initState, action) => {
 	switch (action.type) {
-		case 'TOGGLE_NAV':
+		case 'TOGGLE_ORDER_STATUS':
 			return {
 				...state,
 				display: action.payload
@@ -14,4 +14,4 @@ const naviconReducer = (state = initState, action) => {
 	}
 };
 
-export default naviconReducer;
+export default orderStatusReducer;
