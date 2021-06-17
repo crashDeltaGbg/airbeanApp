@@ -1,6 +1,6 @@
 const initState = {
-	footer: 'show',
-	background: 'light'
+	footer: 'hide',
+	background: 'dark'
 };
 
 const stylesReducer = (state = initState, action) => {

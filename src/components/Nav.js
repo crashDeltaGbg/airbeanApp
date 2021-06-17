@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleOrderStatus } from '../actions/orderStatusAction';
+import {
+	toggleOrderStatus,
+	fetchActiveOrder
+} from '../actions/orderStatusAction';
 import { toggleNavicon } from '../actions/naviconAction';
 
 function Nav() {
@@ -22,6 +25,15 @@ function Nav() {
 		dispatch(toggleOrderStatus(!orderStatus.display));
 	}
 
+	function toggleFetchOrder() {
+		dispatch(fetchActiveOrder(true));
+	}
+
+	function handleClick() {
+		toggleOrderStatusDisplay();
+		toggleFetchOrder();
+	}
+
 	return (
 		<section id="Nav" onClick={toggleNav}>
 			<p>
@@ -33,10 +45,10 @@ function Nav() {
 			</p>
 			<hr />
 			<p>
-				<Link to="/user">Min profil</Link>
+				<Link to="/">Min profil</Link>
 			</p>
 			<hr />
-			<p onClick={toggleOrderStatusDisplay} id="toggle-order-status">
+			<p onClick={handleClick} id="toggle-order-status">
 				Orderstatus
 			</p>
 		</section>

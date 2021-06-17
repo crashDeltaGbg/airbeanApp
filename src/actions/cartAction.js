@@ -1,27 +1,34 @@
-export const content = (addToCart) => {
+export const addContent = (updateCart) => {
 	return {
-		type: 'CONTENT',
-		payload: addToCart
+		type: 'ADD_CONTENT',
+		payload: updateCart
 	};
 };
 
-export const increment = (incrementCounter) => {
+export const updateContent = (updateContent) => {
 	return {
-		type: 'INCREMENT',
-		payload: incrementCounter
+		type: 'UPDATE_CONTENT',
+		payload: updateContent
 	};
 };
 
-export const decrement = (decrementCounter) => {
+export const addToCheckOut = (updateCheckOut) => {
 	return {
-		type: 'DECREMENT',
-		payload: decrementCounter
+		type: 'CHECK_OUT',
+		payload: updateCheckOut
 	};
 };
 
 export const toggleCart = (updateToggle) => {
 	return {
 		type: 'TOGGLE_CART',
+		payload: updateToggle
+	};
+};
+
+export const toggleView = (updateToggle) => {
+	return {
+		type: 'TOGGLE_VIEW',
 		payload: updateToggle
 	};
 };

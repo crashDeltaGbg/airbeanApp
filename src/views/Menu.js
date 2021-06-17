@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { footer, background } from '../actions/stylesAction';
-import { toggleCart, content } from '../actions/cartAction';
-import { updateMenu } from '../actions/menuAction';
+import { toggleCart, addContent } from '../actions/cartAction';
 import { useDispatch, useSelector } from 'react-redux';
 import add from '../assets/img/svg/add.svg';
 
@@ -16,33 +15,16 @@ function Menu() {
 		return state.menu.items;
 	});
 
-	useEffect(() => {
-		console.log('Menu from state:', menu);
-	}, [menu]);
-
-	async function getMenu() {
-		const response = await fetch('http://localhost:3000/api/coffee');
-		const data = await response.json();
-		console.log('Menu from fetch:', await data);
-		dispatch(updateMenu(await data));
-	}
-
 	function addToCart(item) {
-		console.log(item);
-		const cartItem = {
-			title: item.title,
-			price: item.price
-		};
-		console.log(cartItem);
-		dispatch(content(cartItem));
+		const cartItem = { id: item.id };
+		dispatch(addContent(cartItem));
 	}
 
 	useEffect(() => {
 		dispatch(footer('show'));
 		dispatch(background('light'));
 		dispatch(toggleCart((cart.display = true)));
-		getMenu();
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<article className="menu">

@@ -20,7 +20,7 @@ function MyRouter() {
 				<Route path="/menu">
 					<Menu />
 				</Route>
-				<Route path="/user">
+				<Route path="/">
 					<User />
 				</Route>
 			</Switch>

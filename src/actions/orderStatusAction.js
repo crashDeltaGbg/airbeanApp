@@ -4,3 +4,10 @@ export const toggleOrderStatus = (updateToggle) => {
 		payload: updateToggle
 	};
 };
+
+export const fetchActiveOrder = (updateFetch) => {
+	return {
+		type: 'FETCH',
+		payload: updateFetch
+	};
+};

@@ -11,11 +11,18 @@ function Coffee() {
 
 	const dispatch = useDispatch();
 
+	// const toggleDisplayCart = useCallback(
+	// 	(value) => {
+	// 		dispatch(toggleCart((cart.display = value)));
+	// 	},
+	// 	[cart, dispatch]
+	// );
+
 	useEffect(() => {
 		dispatch(footer('show'));
 		dispatch(background('light'));
 		dispatch(toggleCart((cart.display = true)));
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<section className="view">

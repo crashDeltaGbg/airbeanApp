@@ -1,30 +1,37 @@
 const initState = {
 	content: [],
+	checkout: [],
 	counter: 0,
-	display: false
+	display: false,
+	view: false
 };
 
 const cartReducer = (state = initState, action) => {
 	switch (action.type) {
-		case 'CONTENT':
+		case 'ADD_CONTENT':
 			return {
 				...state,
 				content: [...state.content, action.payload]
 			};
-		case 'INCREMENT':
+		case 'UPDATE_CONTENT':
 			return {
 				...state,
-				counter: state.counter + action.payload
+				content: action.payload
 			};
-		case 'DECREMENT':
+		case 'CHECK_OUT':
 			return {
 				...state,
-				counter: state.counter - action.payload
+				checkout: action.payload
 			};
 		case 'TOGGLE_CART':
 			return {
 				...state,
 				display: action.payload
+			};
+		case 'TOGGLE_VIEW':
+			return {
+				...state,
+				view: action.payload
 			};
 		default:
 			return state;

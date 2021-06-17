@@ -1,5 +1,6 @@
 const initState = {
-	display: false
+	display: false,
+	fetch: false
 };
 
 const orderStatusReducer = (state = initState, action) => {
@@ -8,6 +9,11 @@ const orderStatusReducer = (state = initState, action) => {
 			return {
 				...state,
 				display: action.payload
+			};
+		case 'FETCH':
+			return {
+				...state,
+				fetch: action.payload
 			};
 		default:
 			return state;
