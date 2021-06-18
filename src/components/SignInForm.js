@@ -18,11 +18,14 @@ function SignInForm() {
 	const [error, setError] = useState(null);
 
 	async function createUser(user) {
-		const response = await fetch('http://localhost:3000/api/account', {
-			body: JSON.stringify({ username: user.username, email: user.email }),
-			headers: { 'Content-Type': 'application/json' },
-			method: 'POST'
-		});
+		const response = await fetch(
+			'https://rocky-hamlet-92274.herokuapp.com/api/account',
+			{
+				body: JSON.stringify({ username: user.username, email: user.email }),
+				headers: { 'Content-Type': 'application/json' },
+				method: 'POST'
+			}
+		);
 		const data = await response.json();
 		dispatch(
 			setUser({

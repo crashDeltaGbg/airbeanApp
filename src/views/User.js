@@ -28,7 +28,7 @@ function User() {
 
 	async function getOrderHistory() {
 		const response = await fetch(
-			`http://localhost:3000/api/order/history/${userId}`
+			`https://rocky-hamlet-92274.herokuapp.com/api/order/history/${userId}`
 		);
 		const data = await response.json();
 		dispatch(setHistory(await data));

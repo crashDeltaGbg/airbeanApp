@@ -33,19 +33,23 @@ function ViewCart() {
 	});
 
 	async function placeOrder() {
-		const response = await fetch('http://localhost:3000/api/order', {
-			body: JSON.stringify({ userId: user.id, items: cartContent }),
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			method: 'POST'
-		});
+		const response = await fetch(
+			'https://rocky-hamlet-92274.herokuapp.com/api/order',
+			{
+				body: JSON.stringify({ userId: user.id, items: cartContent }),
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				method: 'POST'
+			}
+		);
 		const data = await response.json();
 		console.log('placed order:', await data);
 		if (await data.success) {
 			dispatch(toggleView(!cart.view));
 			dispatch(fetchActiveOrder(true));
 			dispatch(toggleOrderStatus(!orderStatus.display));
+			dispatch(updateContent([]));
 		}
 	}
 

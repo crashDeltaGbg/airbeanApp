@@ -13,13 +13,17 @@ function App() {
 	const dispatch = useDispatch();
 
 	async function getMenu() {
-		const response = await fetch('http://localhost:3000/api/coffee');
+		const response = await fetch(
+			'https://rocky-hamlet-92274.herokuapp.com/api/coffee'
+		);
 		const data = await response.json();
 		dispatch(updateMenu(await data));
 	}
 
 	async function getUsers() {
-		const response = await fetch('http://localhost:3000/api/users');
+		const response = await fetch(
+			'https://rocky-hamlet-92274.herokuapp.com/api/users'
+		);
 		const data = await response.json();
 		dispatch(setUsers(await data));
 	}

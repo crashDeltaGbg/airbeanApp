@@ -36,18 +36,21 @@ function OrderStatus() {
 	}
 
 	async function getActiveOrder() {
+		console.log(userId);
 		const response = await fetch(
-			`http://localhost:3000/api/order/active/${userId}`
+			`https://rocky-hamlet-92274.herokuapp.com/api/order/active/${userId}`
 		);
 		const data = await response.json();
 		console.log('data', await data);
 		setActive(await data.success);
 		console.log('active', await active);
-		setOrder({
-			id: await data.activeOrders.id,
-			message: await data.message,
-			time: await data.activeOrders.eta
-		});
+		if (await data.success) {
+			setOrder({
+				id: await data.activeOrders.id,
+				message: await data.message,
+				time: await data.activeOrders.eta
+			});
+		}
 	}
 
 	useEffect(() => {
