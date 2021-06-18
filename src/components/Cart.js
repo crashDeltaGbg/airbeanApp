@@ -25,7 +25,6 @@ function Cart() {
 
 	useEffect(() => {
 		function groupCartItems() {
-			console.log('hej från cart');
 			let newCart = [];
 			for (let i = 0; i < cart.content.length; i++) {
 				const indexInCart = newCart.findIndex(
@@ -47,9 +46,6 @@ function Cart() {
 			}
 
 			dispatch(addToCheckOut(newCart));
-
-			console.log('New Cart:', newCart);
-			console.log('New Cart length:', newCart.length);
 		}
 		groupCartItems();
 	}, [cart.content, menu, dispatch, cartContent]);

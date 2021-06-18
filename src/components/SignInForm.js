@@ -9,8 +9,6 @@ function SignInForm() {
 
 	const dispatch = useDispatch();
 
-	let action = '';
-
 	const users = useSelector((state) => {
 		return state.users.accounts;
 	});
@@ -34,7 +32,6 @@ function SignInForm() {
 				email: await data.user.email
 			})
 		);
-		action = '#/user';
 	}
 
 	function handleName(event) {
@@ -64,7 +61,6 @@ function SignInForm() {
 					})
 				);
 				setError(() => null);
-				action = '#/user';
 			} else {
 				setError(() => 'Fel användarnamn eller e-post!');
 			}
@@ -74,7 +70,7 @@ function SignInForm() {
 	}
 
 	return (
-		<form id="create-user" onSubmit={handleSubmit} action={action}>
+		<form id="create-user" onSubmit={handleSubmit}>
 			{error ? <p className="error">{error}</p> : ''}
 			<div>
 				<label for="user-name">Användarnamn</label>

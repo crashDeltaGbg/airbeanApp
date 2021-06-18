@@ -25,8 +25,6 @@ function OrderStatus() {
 
 	const [order, setOrder] = useState({});
 
-	// console.log(currentTime);
-
 	function toggleDisplay() {
 		dispatch(toggleOrderStatus(!orderStatus.display));
 	}
@@ -36,14 +34,11 @@ function OrderStatus() {
 	}
 
 	async function getActiveOrder() {
-		console.log(userId);
 		const response = await fetch(
 			`https://rocky-hamlet-92274.herokuapp.com/api/order/active/${userId}`
 		);
 		const data = await response.json();
-		console.log('data', await data);
 		setActive(await data.success);
-		console.log('active', await active);
 		if (await data.success) {
 			setOrder({
 				id: await data.activeOrders.id,
